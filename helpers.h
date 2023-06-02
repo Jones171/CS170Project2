@@ -5,7 +5,6 @@
 
 using namespace std;
 
-int leaveOneOutCrossValidation();
 bool checkDuplicate(int, vector<int>);
 
 #endif
