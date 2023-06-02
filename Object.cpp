@@ -14,6 +14,6 @@ int Object::getClass(){
 void Object::appendFeature(float i){
     features.push_back(i);
 }
-void Object::getFeatures(){
+vector<float> Object::getFeatures(){
     return features;
 }
