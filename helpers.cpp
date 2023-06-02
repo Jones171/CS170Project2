@@ -22,7 +22,7 @@ vector<Object> interpretTxtFile(){
         while (linestream >> text){
             temp.appendFeature(stof(text));
         }
-        
+
         data.push_back(temp);
     }
 
@@ -32,6 +32,14 @@ vector<Object> interpretTxtFile(){
     myReadFile.close();
 
     return data;
+}
+
+float Euclidean(vector<float> data, vector<float> data2){
+    float distance;
+    for(int i = 0; i < data.size(); i++){
+        distance += pow(data.at(i) - data2.at(i), 2);
+    }
+    return sqrt(distance);
 }
 
 bool checkDuplicate(int feature, vector<int> addedFeatures){

@@ -7,6 +7,7 @@
 using namespace std;
 
 vector<Object> interpretTxtFile();
+float Euclidean(vector<float>, vector<float>);
 bool checkDuplicate(int, vector<int>);
 
 #endif
