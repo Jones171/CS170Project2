@@ -6,6 +6,9 @@
 #include <time.h>
 #include <algorithm>
 #include <array>
+#include <fstream>
+#include <string>
+#include <sstream>
 #include <stdlib.h>
 #include <stdio.h>
 

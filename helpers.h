@@ -5,6 +5,7 @@
 
 using namespace std;
 
+vector<float> interpretTxtFile();
 bool checkDuplicate(int, vector<int>);
 
 #endif

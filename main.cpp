@@ -28,7 +28,7 @@ int main(){
         BackwardSelection(features);
     }
     else if(algo == 3){
-
+        interpretTxtFile();
     }
     return 0;
 }

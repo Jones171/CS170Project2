@@ -3,4 +3,8 @@
 
 #include "headers.h"
 
+using namespace std;
+
+float KNN(vector<float>);
+
 #endif

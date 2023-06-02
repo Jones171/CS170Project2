@@ -10,6 +10,8 @@
                 "main.cpp",
                 "helpers.cpp",
                 "Search.cpp",
+                "Classifier.cpp",
+                "Validator.cpp",
                 "-o",
                 "${fileDirname}\\main.exe"
             ],
