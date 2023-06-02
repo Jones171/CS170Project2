@@ -37,30 +37,6 @@ vector<float> interpretTxtFile(){
     return data;
 }
 
-vector<float> getClassLabels(){
-    string myText;
-    string temp1 = "3.3396418e-001";
-    float temp;
-    vector<float> data; 
-
-    ifstream myReadFile("small-test-dataset.txt");
-
-    while(getline(myReadFile, myText)){
-        data.push_back(stof(myText));
-    }
-
-    for(int i = 0; i < data.size(); i++){
-        cout << data.at(i) << ", ";
-    }
-
-    cout << data.size() << endl;
-    cout << stof(temp1) << endl;
-
-    myReadFile.close();
-
-    return data;
-}
-
 bool checkDuplicate(int feature, vector<int> addedFeatures){
     for(int i = 0; i < addedFeatures.size(); i++){
         if(feature == addedFeatures.at(i)){

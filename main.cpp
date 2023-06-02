@@ -29,7 +29,7 @@ int main(){
         BackwardSelection(features);
     }
     else if(algo == 3){
-        NN(interpretTxtFile(), getClassLabels());
+        NN(interpretTxtFile());
     }
     return 0;
 }
