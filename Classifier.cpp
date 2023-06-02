@@ -7,11 +7,8 @@ float NN(vector<Object> data){
     float accuracy = 0;
 
     for(int i = 0; i < data.size(); i++){
-        float toClassify = data.at(i);
-        int labelObject;
-        //Figure out what this is 
-        if(i % 10 == 0){
-        }
+        Object toClassify = data.at(i);
+        int labelObject = data.at(i).getClass();
 
         float nnDistance = -1;
         float nnLocation = -1;

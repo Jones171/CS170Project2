@@ -12,17 +12,19 @@ vector<Object> interpretTxtFile(){
 
     while(getline(myReadFile, myText)){
         Object temp;
+        int Class;
         vector<float> features;
 
         stringstream linestream(myText);
         string text;
 
+        temp.setClass(stoi(myText));
         while (linestream >> text){
             temp.appendFeature(stof(text));
         }
+        
         data.push_back(temp);
     }
-    
 
     cout << data.size() << endl;
     cout << stof(temp1) << endl;
