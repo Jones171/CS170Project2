@@ -22,15 +22,7 @@ vector<Object> interpretTxtFile(){
         }
         data.push_back(temp);
     }
-
-    for(int i = 0; i < data.size(); i++){
-        // gets rid of the class label column
-        // Leaves only data
-        if(data.at(i) == 1 || data.at(i) == 2){
-            data.erase(find(data.begin(), data.end(), data.at(i)));
-        }
-        cout << data.at(i) << ", ";
-    }
+    
 
     cout << data.size() << endl;
     cout << stof(temp1) << endl;
