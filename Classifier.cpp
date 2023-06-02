@@ -2,7 +2,7 @@
 
 using namespace std;
 
-float NN(vector<float> data){
+float NN(vector<Object> data){
     int correctlyClassified = 0; 
     float accuracy = 0;
 

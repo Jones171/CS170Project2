@@ -2,22 +2,25 @@
 
 using namespace std;
 
-vector<float> interpretTxtFile(){
+vector<Object> interpretTxtFile(){
     string myText;
     string temp1 = "3.3396418e-001";
     float temp;
-    vector<float> data; 
+    vector<Object> data;
 
     ifstream myReadFile("small-test-dataset.txt");
 
     while(getline(myReadFile, myText)){
-        temp = stof(myText);
-        data.push_back(temp);
+        Object temp;
+        vector<float> features;
+
         stringstream linestream(myText);
         string text;
+
         while (linestream >> text){
-            data.push_back(stof(text));
+            temp.appendFeature(stof(text));
         }
+        data.push_back(temp);
     }
 
     for(int i = 0; i < data.size(); i++){

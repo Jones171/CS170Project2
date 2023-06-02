@@ -2,10 +2,11 @@
 #define HELPERS_H
 
 #include "headers.h"
+#include "Object.h"
 
 using namespace std;
 
-vector<float> interpretTxtFile();
+vector<Object> interpretTxtFile();
 bool checkDuplicate(int, vector<int>);
 
 #endif

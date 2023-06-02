@@ -5,6 +5,6 @@
 
 using namespace std;
 
-float NN(vector<float>);
+float NN(vector<Object>);
 
 #endif
