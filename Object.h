@@ -12,6 +12,7 @@ class Object{
 
     public:
         Object();
+        void print();
         void setClass(int);
         int getClass();
         void appendFeature(float);
