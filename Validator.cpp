@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int leaveOneOutCrossValidation(vector<Object> data, vector<int> featureSet, int featuretoAdd){
+float leaveOneOutCrossValidation(vector<Object> data, vector<int> featureSet, int featuretoAdd){
     int found = 0;
     int index = -1;
     for(int i = 0; i < data.size(); i++){
@@ -35,8 +35,5 @@ int leaveOneOutCrossValidation(vector<Object> data, vector<int> featureSet, int 
         data.at(i).setFeatures(features);
     }
 
-    // for(int i = 0; i < data.size(); i++){
-    //     data.at(i).print();
-    // }
     return NN(data);
 }

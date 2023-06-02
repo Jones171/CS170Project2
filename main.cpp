@@ -13,8 +13,11 @@ int main(){
     cout << "Please Enter number of features: ";
     cin >> numofFeatures;
 
+    // For smallset
     vector<int> currentSet = {3, 5, 7};
-    int featuretoadd = 10;
+    // For largeset
+    // vector<int> currentSet = {1, 15, 27};
+    int featuretoadd = 7;
 
 
     for(int i = 0; i < numofFeatures; i++){
@@ -28,14 +31,23 @@ int main(){
 
     cin >> algo;
     if(algo == 1){
-        ForwardSelection(features);
+        auto start = chrono::system_clock::now();
+        ForwardSelection(currentSet);
+        auto end = chrono::system_clock::now();
+ 
+        chrono::duration<double> elapsed_seconds = end - start;
+        time_t end_time = chrono::system_clock::to_time_t(end);
+    
+        std::cout << "elapsed time: " << elapsed_seconds.count() << "s"
+                << std::endl;
+
     }
     else if(algo == 2){
         BackwardSelection(features);
     }
     else if(algo == 3){
         // NN(interpretTxtFile());
-        leaveOneOutCrossValidation(interpretTxtFile(), currentSet, featuretoadd);
+        cout << "Accuracy: " << leaveOneOutCrossValidation(interpretTxtFile(), currentSet, featuretoadd);
     }
     return 0;
 }

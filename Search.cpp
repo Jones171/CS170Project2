@@ -18,11 +18,12 @@ void BackwardSelection(vector<int> features){
     float accuracy = 0;
     int featuretoSub;
     int decreasing = 0;
+    int increasing = 0;
 
     bestFeatures = features;
     currentFeatures = features;
 
-    cout << "Beginning Search" << endl;
+    std::cout << "Beginning Search" << endl;
     for(int i = 0; i < features.size(); i++){
         int k = 0;
         bestAccuracy = 0;
@@ -34,20 +35,20 @@ void BackwardSelection(vector<int> features){
                 /*
                     Beginning of Trace
                 */
-                cout << "Using feature(s) {";
+                std::cout << "Using feature(s) {";
                 Subbed = currentFeatures;
                 if(currentFeatures.size() != 1){
                 currentFeatures.erase(find(currentFeatures.begin(), currentFeatures.end(), k));
                 }
                 for(int i = 0; i < currentFeatures.size(); i++){
                     if(i == currentFeatures.size()-1){
-                        cout << currentFeatures.at(i);
+                        std::cout << currentFeatures.at(i);
                     }
                     else{
-                        cout << currentFeatures.at(i) << ", ";
+                        std::cout << currentFeatures.at(i) << ", ";
                     }
                 }
-                cout << "} accuracy is " << accuracy << "%" << endl;
+                std::cout << "} accuracy is " << accuracy << "%" << endl;
                 currentFeatures = Subbed;
                 /*
                     End of Trace
@@ -64,36 +65,36 @@ void BackwardSelection(vector<int> features){
         if(bestAccuracy > THEbestAccuracy){
             THEbestAccuracy = bestAccuracy;
             bestFeatures = currentFeatures;
-            cout << "Feature set {";
+            std::cout << "Feature set {";
             for(int i = 0; i < bestFeatures.size(); i++){
                 if(i == bestFeatures.size()-1){
-                    cout << bestFeatures.at(i);
+                    std::cout << bestFeatures.at(i);
                 }
                 else{
-                    cout << bestFeatures.at(i) << ", ";
+                    std::cout << bestFeatures.at(i) << ", ";
                 }
             }
-            cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
+            std::cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
         }
         else if(decreasing == 0){
-            cout << endl;
-            cout << "Warning, Accuracy has decreased. Continuing Search..." << endl;
-            cout << endl;
+            std::cout << endl;
+            std::cout << "Warning, Accuracy has decreased. Continuing Search..." << endl;
+            std::cout << endl;
             decreasing = 1;
         }
     }
-    cout << endl;
-    cout << "Finished Search!! The best feature subset is {";
+    std::cout << endl;
+    std::cout << "Finished Search!! The best feature subset is {";
     for(int i = 0; i < bestFeatures.size(); i++){
         if(i == bestFeatures.size()-1){
-            cout << bestFeatures.at(i);
+            std::cout << bestFeatures.at(i);
         }
         else{
-            cout << bestFeatures.at(i) << ", ";
+            std::cout << bestFeatures.at(i) << ", ";
         }
     }
-    cout << "} which has an accuracy of " << THEbestAccuracy << "%" << endl;
-    cout << endl;
+    std::cout << "} which has an accuracy of " << THEbestAccuracy << "%" << endl;
+    std::cout << endl;
 }
 
 /*
@@ -112,7 +113,7 @@ void ForwardSelection(vector<int> features){
     int featuretoAdd;
     int decreasing = 0;
 
-    cout << "Beginning Search" << endl;
+    std::cout << "Beginning Search" << endl;
     for(int i = 0; i < features.size(); i++){
         bestAccuracy = 0;
         for(int j = 0; j < features.size(); j++){
@@ -121,22 +122,22 @@ void ForwardSelection(vector<int> features){
                 // Currently Random (1 - 100)
                 accuracy = leaveOneOutCrossValidation(data, currentFeatures, featuretoAdd);
                 //Beginning of Trace
-                cout << "Using feature(s) {";
+                std::cout << "Using feature(s) {";
                 if(currentFeatures.empty()){
-                    cout << j;
+                    std::cout << j;
                 }
                 else{
-                    cout << j << ", ";
+                    std::cout << j << ", ";
                 }
                 for(int i = 0; i < currentFeatures.size(); i++){
                     if(i == currentFeatures.size()-1){
-                        cout << currentFeatures.at(i);
+                        std::cout << currentFeatures.at(i);
                     }
                     else{
-                        cout << currentFeatures.at(i) << ", ";
+                        std::cout << currentFeatures.at(i) << ", ";
                     }
                 }
-                cout << "} accuracy is " << accuracy << "%" << endl;
+                std::cout << "} accuracy is " << accuracy << "%" << endl;
                 //End of Trace
                 if(accuracy > bestAccuracy){
                     bestAccuracy = accuracy;
@@ -148,35 +149,35 @@ void ForwardSelection(vector<int> features){
         if(bestAccuracy > THEbestAccuracy){
             THEbestAccuracy = bestAccuracy;
             bestFeatures = currentFeatures;
-            cout << "Feature set {";
+            std::cout << "Feature set {";
             for(int i = 0; i < bestFeatures.size(); i++){
                 if(i == bestFeatures.size()-1){
-                    cout << bestFeatures.at(i);
+                    std::cout << bestFeatures.at(i);
                 }
                 else{
-                    cout << bestFeatures.at(i) << ", ";
+                    std::cout << bestFeatures.at(i) << ", ";
                 }
             }
-            cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
+            std::cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
         }
         else if(decreasing == 0){
-            cout << endl;
-            cout << "Warning, Accuracy has decreased. Continuing Search..." << endl;
-            cout << endl;
+            std::cout << endl;
+            std::cout << "Warning, Accuracy has decreased. Continuing Search..." << endl;
+            std::cout << endl;
             decreasing = 1;
         }
     }
-    cout << endl;
-    cout << "Finished Search!! The best feature subset is {";
+    std::cout << endl;
+    std::cout << "Finished Search!! The best feature subset is {";
     for(int i = 0; i < bestFeatures.size(); i++){
         if(i == bestFeatures.size()-1){
-            cout << bestFeatures.at(i);
+            std::cout << bestFeatures.at(i);
         }
         else{
-            cout << bestFeatures.at(i) << ", ";
+            std::cout << bestFeatures.at(i) << ", ";
         }
     }
-    cout << "} which has an accuracy of " << THEbestAccuracy << "%" << endl;
-    cout << endl;
+    std::cout << "} which has an accuracy of " << THEbestAccuracy << "%" << endl;
+    std::cout << endl;
 }
 

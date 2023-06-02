@@ -7,6 +7,6 @@
 
 using namespace std;
 
-int leaveOneOutCrossValidation(vector<Object>, vector<int>, int);
+float leaveOneOutCrossValidation(vector<Object>, vector<int>, int);
 
 #endif
