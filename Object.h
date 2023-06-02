@@ -12,7 +12,9 @@ class Object{
 
     public:
         Object();
+        void setClass(int);
         int getClass();
+        void appendFeature(float);
         vector<float> getFeatures();
 };
 
