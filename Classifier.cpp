@@ -26,9 +26,14 @@ float NN(vector<Object> data){
             }
             // cout << "Ask if " << i << " is nearest neighbor with " << j << endl;
         }
-
-        cout << "Object " << i << " is class" << labelObject << endl;
-        cout << "Its nearest neighbor is " << nnLocation << " which is in class " << nnLabel << endl;
+        if(labelObject == nnLabel){
+            correctlyClassified += 1; 
+        }
+        // cout << "Object " << i << " is class " << labelObject << endl;
+        // cout << "Its nearest neighbor is " << nnLocation << " which is in class " << nnLabel << endl;
     }
+
+    accuracy = (float)correctlyClassified/(float)data.size() * 100;
+    
     return accuracy;
 }
