@@ -6,6 +6,7 @@
 using namespace std;
 
 vector<float> interpretTxtFile();
+vector<float> getClassLabels();
 bool checkDuplicate(int, vector<int>);
 
 #endif

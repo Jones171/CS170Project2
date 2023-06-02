@@ -1,4 +1,5 @@
 #include "headers.h"
+#include "Classifier.h"
 #include "Search.h"
 
 using namespace std;
@@ -28,7 +29,7 @@ int main(){
         BackwardSelection(features);
     }
     else if(algo == 3){
-        interpretTxtFile();
+        NN(interpretTxtFile(), getClassLabels());
     }
     return 0;
 }

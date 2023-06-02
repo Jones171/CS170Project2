@@ -21,6 +21,35 @@ vector<float> interpretTxtFile(){
     }
 
     for(int i = 0; i < data.size(); i++){
+        // gets rid of the class label column
+        // Leaves only data
+        if(data.at(i) == 1 || data.at(i) == 2){
+            data.erase(find(data.begin(), data.end(), data.at(i)));
+        }
+        cout << data.at(i) << ", ";
+    }
+
+    cout << data.size() << endl;
+    cout << stof(temp1) << endl;
+
+    myReadFile.close();
+
+    return data;
+}
+
+vector<float> getClassLabels(){
+    string myText;
+    string temp1 = "3.3396418e-001";
+    float temp;
+    vector<float> data; 
+
+    ifstream myReadFile("small-test-dataset.txt");
+
+    while(getline(myReadFile, myText)){
+        data.push_back(stof(myText));
+    }
+
+    for(int i = 0; i < data.size(); i++){
         cout << data.at(i) << ", ";
     }
 

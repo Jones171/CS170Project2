@@ -5,6 +5,6 @@
 
 using namespace std;
 
-float KNN(vector<float>);
+float NN(vector<float>, vector<float>);
 
 #endif
