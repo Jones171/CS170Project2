@@ -14,9 +14,12 @@ class Object{
         Object();
         void print();
         void setClass(int);
+        void setFeatures(vector<float>);
+        void setFeaturesIndex(int, float);
         int getClass();
         void appendFeature(float);
         vector<float> getFeatures();
+        int getFeatureSize();
 };
 
 #endif

@@ -16,6 +16,12 @@ void Object::print(){
 void Object::setClass(int i){
     Class = i;
 }
+void Object::setFeatures(vector<float> feature){
+    features = feature;
+}
+void Object::setFeaturesIndex(int i, float value){
+    features.at(i) = value;
+}
 int Object::getClass(){
     return Class;
 }
@@ -24,4 +30,7 @@ void Object::appendFeature(float i){
 }
 vector<float> Object::getFeatures(){
     return features;
+}
+int Object::getFeatureSize(){
+    return features.size();
 }

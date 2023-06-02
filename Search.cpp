@@ -8,13 +8,14 @@ void BackwardSelection(vector<int> features){
     // Initial State = All features
     // Operators: Subtract a feature
     // Eval function: K-Fold but we dont implemetn this in part 1
+    vector<Object> data = interpretTxtFile();
     vector<int> currentFeatures;
     vector<vector<int>> tempsubFeatures;
     vector<int> Subbed;
     vector<int> bestFeatures;
-    int THEbestAccuracy = 0;
-    int bestAccuracy;
-    int accuracy = 0;
+    float THEbestAccuracy = 0;
+    float bestAccuracy;
+    float accuracy = 0;
     int featuretoSub;
 
     bestFeatures = features;
@@ -28,7 +29,7 @@ void BackwardSelection(vector<int> features){
             // if returns true then SUBTRACT cuz idk??
             if(checkDuplicate(features.at(j), currentFeatures) == true){
                 // Currently Random (1 - 100)
-                accuracy = leaveOneOutCrossValidation();
+                accuracy = leaveOneOutCrossValidation(data, currentFeatures, featuretoSub);
                 /*
                     Beginning of Trace
                 */
@@ -96,11 +97,12 @@ void ForwardSelection(vector<int> features){
     // Initial State = no Features
     // Operators: Adda  feature
     // Eval function: K-Fold but we dont implemetn this in part 1
+    vector<Object> data = interpretTxtFile();
     vector<int> currentFeatures;
     vector<int> bestFeatures;
-    int THEbestAccuracy = 0;
-    int bestAccuracy;
-    int accuracy = 0;
+    float THEbestAccuracy = 0;
+    float bestAccuracy;
+    float accuracy = 0;
     int featuretoAdd;
 
     cout << "Beginning Search" << endl;
@@ -110,7 +112,7 @@ void ForwardSelection(vector<int> features){
             // if returns true then dont add
             if(checkDuplicate(features.at(j), currentFeatures) == false){
                 // Currently Random (1 - 100)
-                accuracy = leaveOneOutCrossValidation();
+                accuracy = leaveOneOutCrossValidation(data, currentFeatures, featuretoAdd);
                 //Beginning of Trace
                 cout << "Using feature(s) {";
                 if(currentFeatures.empty()){

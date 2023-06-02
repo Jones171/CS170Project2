@@ -1,5 +1,6 @@
 #include "headers.h"
 #include "Classifier.h"
+#include "Validator.h"
 #include "Search.h"
 
 using namespace std;
@@ -11,6 +12,10 @@ int main(){
     cout << "Welcome to Jonas Tan's Feature Selection Algorithm" << endl;
     cout << "Please Enter number of features: ";
     cin >> numofFeatures;
+
+    vector<int> currentSet = {3, 5, 7};
+    int featuretoadd = 10;
+
 
     for(int i = 0; i < numofFeatures; i++){
         features.push_back(i);
@@ -29,7 +34,8 @@ int main(){
         BackwardSelection(features);
     }
     else if(algo == 3){
-        NN(interpretTxtFile());
+        // NN(interpretTxtFile());
+        leaveOneOutCrossValidation(interpretTxtFile(), currentSet, featuretoadd);
     }
     return 0;
 }
