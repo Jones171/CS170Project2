@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void BackwardSelection(vector<int>);
-void ForwardSelection(vector<int>);
+void BackwardSelection(vector<Object>);
+void ForwardSelection(vector<Object>);
 
 #endif

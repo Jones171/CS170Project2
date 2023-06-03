@@ -2,13 +2,11 @@
 
 using namespace std;
 
-vector<Object> interpretTxtFile(){
+vector<Object> interpretTxtFile(string fileName){
     string myText;
-    string temp1 = "3.3396418e-001";
-    float temp;
     vector<Object> data;
 
-    ifstream myReadFile("small-test-dataset.txt");
+    ifstream myReadFile(fileName);
     // ifstream myReadFile("large-test-dataset-1.txt");
 
     while(getline(myReadFile, myText)){

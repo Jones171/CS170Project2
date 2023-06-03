@@ -4,13 +4,13 @@ using namespace std;
 /*
     Backward Selection Search
 */
-void BackwardSelection(vector<int> features){
+void BackwardSelection(vector<Object> tempdata){
     // Initial State = All features
     // Operators: Subtract a feature
     // Eval function: K-Fold but we dont implemetn this in part 1
-    vector<Object> data = interpretTxtFile();
+    vector<Object> data = tempdata;
+    vector<int> features;
     vector<int> currentFeatures;
-    vector<vector<int>> tempsubFeatures;
     vector<int> Subbed;
     vector<int> bestFeatures;
     float THEbestAccuracy = 0;
@@ -18,7 +18,10 @@ void BackwardSelection(vector<int> features){
     float accuracy = 0;
     int featuretoSub;
     int decreasing = 0;
-    int increasing = 0;
+
+    for(int i = 1; i < data.at(0).getFeatureSize(); i++){
+        features.push_back(i);
+    }
 
     bestFeatures = features;
     currentFeatures = features;
@@ -38,7 +41,9 @@ void BackwardSelection(vector<int> features){
                 std::cout << "Using feature(s) {";
                 Subbed = currentFeatures;
                 if(currentFeatures.size() != 1){
-                currentFeatures.erase(find(currentFeatures.begin(), currentFeatures.end(), k));
+                    if(find(currentFeatures.begin(), currentFeatures.end(), k) != currentFeatures.end()){
+                        currentFeatures.erase(find(currentFeatures.begin(), currentFeatures.end(), k));
+                    }
                 }
                 for(int i = 0; i < currentFeatures.size(); i++){
                     if(i == currentFeatures.size()-1){
@@ -65,6 +70,7 @@ void BackwardSelection(vector<int> features){
         if(bestAccuracy > THEbestAccuracy){
             THEbestAccuracy = bestAccuracy;
             bestFeatures = currentFeatures;
+            cout << endl;
             std::cout << "Feature set {";
             for(int i = 0; i < bestFeatures.size(); i++){
                 if(i == bestFeatures.size()-1){
@@ -75,6 +81,7 @@ void BackwardSelection(vector<int> features){
                 }
             }
             std::cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
+            cout << endl;
         }
         else if(decreasing == 0){
             std::cout << endl;
@@ -100,11 +107,12 @@ void BackwardSelection(vector<int> features){
 /*
     Forward Selection Search
 */
-void ForwardSelection(vector<int> features){
+void ForwardSelection(vector<Object> tempData){
     // Initial State = no Features
     // Operators: Adda  feature
     // Eval function: K-Fold but we dont implemetn this in part 1
-    vector<Object> data = interpretTxtFile();
+    vector<Object> data = tempData;
+    vector<int> features;
     vector<int> currentFeatures;
     vector<int> bestFeatures;
     float THEbestAccuracy = 0;
@@ -112,6 +120,10 @@ void ForwardSelection(vector<int> features){
     float accuracy = 0;
     int featuretoAdd;
     int decreasing = 0;
+
+    for(int i = 1; i < data.at(0).getFeatureSize(); i++){
+        features.push_back(i);
+    }
 
     std::cout << "Beginning Search" << endl;
     for(int i = 0; i < features.size(); i++){
