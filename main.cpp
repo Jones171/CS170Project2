@@ -18,7 +18,7 @@ int main(){
     // For largeset
     // vector<int> currentSet = {1, 15, 27};
     // No features
-    vector<int> currentSet = {};
+    vector<int> currentSet = {50};
     int featuretoadd = 0;
 
     vector<Object> data = interpretTxtFile(fileName);

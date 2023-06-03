@@ -34,6 +34,6 @@ float leaveOneOutCrossValidation(vector<Object> data, vector<int> featureSet, in
         }
         data.at(i).setFeatures(features);
     }
-
+    
     return NN(data);
 }
