@@ -37,7 +37,7 @@ int main(){
     cout << endl;
 
     cout << "Running nearest neighbor with no features (default rate), using leaving-one-out evaluation" << endl;
-    cout << " I get an accuracy of " << leaveOneOutCrossValidation(data, currentSet, featuretoadd) << "%" << endl;
+    cout << "I get an accuracy of " << leaveOneOutCrossValidation(data, currentSet, featuretoadd) << "%" << endl;
     cout << endl;
 
     if(algo == 1){
@@ -50,6 +50,7 @@ int main(){
     
         std::cout << "elapsed time: " << elapsed_seconds.count() << "s"
         << std::endl;
+        cout << endl;
 
     }
     else if(algo == 2){
@@ -62,6 +63,7 @@ int main(){
     
         std::cout << "elapsed time: " << elapsed_seconds.count() << "s"
         << std::endl;
+        cout << endl;
     }
     else if(algo == 3){
         cout << "My Special Algorithm :)" << endl;
