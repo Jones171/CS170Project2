@@ -6,12 +6,12 @@
 using namespace std;
 
 int main(){
-    int numofFeatures;
+    string fileName;
     int algo;
     vector<int> features;
     cout << "Welcome to Jonas Tan's Feature Selection Algorithm" << endl;
-    cout << "Please Enter number of features: ";
-    cin >> numofFeatures;
+    cout << "Type in the name of the file to test: ";
+    cin >> fileName;
 
     // For smallset
     // vector<int> currentSet = {3, 5, 7};
@@ -19,20 +19,27 @@ int main(){
     vector<int> currentSet = {1, 15, 27};
     int featuretoadd = 27;
 
-
-    for(int i = 0; i < numofFeatures; i++){
-        features.push_back(i);
-    }
+    vector<Object> data = interpretTxtFile(fileName);
 
     cout << "Type the number of algorithm you want to run" << endl;
-    cout << "Forward Selection" << endl;
-    cout << "Backward Selection" << endl;
-    cout << "Jonas's Special Algorithm" << endl;
+    cout << "1. Forward Selection" << endl;
+    cout << "2. Backward Selection" << endl;
+    cout << "3. Jonas's Special Algorithm" << endl;
 
     cin >> algo;
+
+    cout << endl;
+    cout << "This dataset has " << data.at(0).getFeatureSize()-1 << " features (Not including the class attribute), with " << data.size() << " instances." << endl;
+    cout << endl;
+    cout << "Normalizing..." << endl;
+    cout << endl;
+
+    cout << "Running nearest neighbor with no features (default rate), using leaving-one-out evaluation, I get an accuracy of " << endl;
+    cout << endl;
+
     if(algo == 1){
         auto start = chrono::system_clock::now();
-        ForwardSelection(features);
+        ForwardSelection(data);
         auto end = chrono::system_clock::now();
  
         chrono::duration<double> elapsed_seconds = end - start;
@@ -43,11 +50,11 @@ int main(){
 
     }
     else if(algo == 2){
-        BackwardSelection(features);
+        BackwardSelection(data);
     }
     else if(algo == 3){
         // NN(interpretTxtFile());
-        cout << "Accuracy: " << leaveOneOutCrossValidation(interpretTxtFile(), currentSet, featuretoadd);
+        // cout << "Accuracy: " << leaveOneOutCrossValidation(interpretTxtFile(), currentSet, featuretoadd);
     }
     return 0;
 }
