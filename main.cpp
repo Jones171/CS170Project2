@@ -16,8 +16,10 @@ int main(){
     // For smallset
     // vector<int> currentSet = {3, 5, 7};
     // For largeset
-    vector<int> currentSet = {1, 15, 27};
-    int featuretoadd = 27;
+    // vector<int> currentSet = {1, 15, 27};
+    // No features
+    vector<int> currentSet = {};
+    int featuretoadd = 0;
 
     vector<Object> data = interpretTxtFile(fileName);
 
@@ -34,7 +36,8 @@ int main(){
     cout << "Normalizing..." << endl;
     cout << endl;
 
-    cout << "Running nearest neighbor with no features (default rate), using leaving-one-out evaluation, I get an accuracy of " << endl;
+    cout << "Running nearest neighbor with no features (default rate), using leaving-one-out evaluation" << endl;
+    cout << " I get an accuracy of " << leaveOneOutCrossValidation(data, currentSet, featuretoadd) << "%" << endl;
     cout << endl;
 
     if(algo == 1){
@@ -46,13 +49,22 @@ int main(){
         time_t end_time = chrono::system_clock::to_time_t(end);
     
         std::cout << "elapsed time: " << elapsed_seconds.count() << "s"
-                << std::endl;
+        << std::endl;
 
     }
     else if(algo == 2){
+        auto start = chrono::system_clock::now();
         BackwardSelection(data);
+        auto end = chrono::system_clock::now();
+ 
+        chrono::duration<double> elapsed_seconds = end - start;
+        time_t end_time = chrono::system_clock::to_time_t(end);
+    
+        std::cout << "elapsed time: " << elapsed_seconds.count() << "s"
+        << std::endl;
     }
     else if(algo == 3){
+        cout << "My Special Algorithm :)" << endl;
         // NN(interpretTxtFile());
         // cout << "Accuracy: " << leaveOneOutCrossValidation(interpretTxtFile(), currentSet, featuretoadd);
     }

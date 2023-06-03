@@ -161,11 +161,13 @@ void ForwardSelection(vector<Object> tempData){
         if(bestAccuracy > THEbestAccuracy){
             THEbestAccuracy = bestAccuracy;
             bestFeatures = currentFeatures;
+            std::cout << endl;
             std::cout << "Feature set {";
             printbestFeatures(bestFeatures);
             std::cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
+            std::cout << endl;
         }
-        else if(decreasing == 0){
+        if(bestAccuracy < THEbestAccuracy && decreasing == 0){
             std::cout << endl;
             std::cout << "Warning, Accuracy has decreased. Continuing Search..." << endl;
             std::cout << endl;
