@@ -150,14 +150,7 @@ void ForwardSelection(vector<int> features){
             THEbestAccuracy = bestAccuracy;
             bestFeatures = currentFeatures;
             std::cout << "Feature set {";
-            for(int i = 0; i < bestFeatures.size(); i++){
-                if(i == bestFeatures.size()-1){
-                    std::cout << bestFeatures.at(i);
-                }
-                else{
-                    std::cout << bestFeatures.at(i) << ", ";
-                }
-            }
+            printbestFeatures(bestFeatures);
             std::cout << "} was best, accuracy is " << THEbestAccuracy << "%" << endl;
         }
         else if(decreasing == 0){
@@ -169,14 +162,7 @@ void ForwardSelection(vector<int> features){
     }
     std::cout << endl;
     std::cout << "Finished Search!! The best feature subset is {";
-    for(int i = 0; i < bestFeatures.size(); i++){
-        if(i == bestFeatures.size()-1){
-            std::cout << bestFeatures.at(i);
-        }
-        else{
-            std::cout << bestFeatures.at(i) << ", ";
-        }
-    }
+    printbestFeatures(bestFeatures);
     std::cout << "} which has an accuracy of " << THEbestAccuracy << "%" << endl;
     std::cout << endl;
 }

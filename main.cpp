@@ -14,10 +14,10 @@ int main(){
     cin >> numofFeatures;
 
     // For smallset
-    vector<int> currentSet = {3, 5, 7};
+    // vector<int> currentSet = {3, 5, 7};
     // For largeset
-    // vector<int> currentSet = {1, 15, 27};
-    int featuretoadd = 7;
+    vector<int> currentSet = {1, 15, 27};
+    int featuretoadd = 27;
 
 
     for(int i = 0; i < numofFeatures; i++){
@@ -32,7 +32,7 @@ int main(){
     cin >> algo;
     if(algo == 1){
         auto start = chrono::system_clock::now();
-        ForwardSelection(currentSet);
+        ForwardSelection(features);
         auto end = chrono::system_clock::now();
  
         chrono::duration<double> elapsed_seconds = end - start;
